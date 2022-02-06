@@ -1,9 +1,9 @@
+#!/usr/bin/python3 
 '''
 Name: Victor Li
 Date: 06/02/2022
 Description: A simple script that gets the current prices of crypto using coinmarketcap.com
 '''
-
 from bs4 import BeautifulSoup
 from colorama import Fore, Style
 import requests
@@ -61,8 +61,8 @@ def cryptoFind(cryptos):
 
     # Repeat for each parameter
     for name in cryptos:
-        # Skip the first two parameters because it's just python3 and the name of the file
-        if name == "python3" or name == "crypto.py": continue
+        # Skip parameters was used to open the program (either CLI or by Python IDLE)
+        if name == "python3" or name == "crypto.py" or name == "/usr/local/bin/crypto" or name == "./crypto": continue
         # Get the HTML content
         page = requests.get("https://coinmarketcap.com/currencies/" + name)
         # If cryptocurrency exist, print out the data
