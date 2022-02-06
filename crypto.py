@@ -14,7 +14,7 @@ def cryptoList(total):
         @param total: How much crypto you wanna list'''
 
     # Print table captions
-    print("%-3s %-15s %-15s %-15s %-15s %-15s" % ("#", "Name", "Price", "Daily Change", "Weekly Change", "Market Cap"))    
+    print("%-5s %-15s %-15s %-15s %-16s %s" % ("#", "Name", "Price", "Daily Change", "Weekly Change", "Market Cap"))    
 
     # Get the HTML content
     page = requests.get("https://coinmarketcap.com/")
@@ -46,7 +46,7 @@ def cryptoList(total):
         market = crypto.find("span", class_="iosgXe").text
 
         # Print out the results
-        print("%-3s %-15s %-15s %-24s %-24s %-15s" % (rank, name, price, changes[0], changes[1], market))
+        print("%-5s %-15s %-15s %-24s %-25s %s" % (rank, name, price, changes[0], changes[1], market))
         
         # Print up to the given rank value
         rank += 1
@@ -57,7 +57,7 @@ def cryptoFind(cryptos):
         @param cryptos: A list containing each crypto the user wants to know about'''
 
     # Print table captions
-    print("%-6s %-15s %-15s %-15s %-24s %-15s" % ("#", "Name", "Price", "Daily Change", "Total Supply", "Market Cap"))
+    print("%-5s %-15s %-15s %-15s %-16s %s" % ("#", "Name", "Price", "Daily Change", "Market Cap", "Total Supply"))
 
     # Repeat for each parameter
     for name in cryptos:
@@ -88,7 +88,7 @@ def cryptoFind(cryptos):
             market = crypto.find("div", class_="statsValue").text
             
             # Print out the results
-            print("%-6s %-15s %-15s %-24s %-24s %-15s" % (rank[6:], name, price, changes, supply[:-3], market))
+            print("%-5s %-15s %-15s %-24s %-16s %s" % (rank[6:], name, price, changes, market, supply[:-3]))
 
 
         # Give error message if DNE
