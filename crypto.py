@@ -95,7 +95,11 @@ def cryptoFind(cryptos):
         else: print("%s is not listed on CMC or you mispelt!" % name)
 
 
-# Prints out the top 10 cryptocurrencies by default if no argument is given
-numArgs = len(sys.argv)
-if (numArgs == 1): cryptoList(10)
-else: cryptoFind(sys.argv)
+def main():
+    # Prints out the top 10 cryptocurrencies by default if no argument is given
+    numArgs = len(sys.argv)
+    if (numArgs == 1): cryptoList(10)
+    else: cryptoFind(sys.argv)
+
+if __name__ == '__main__':
+    main()
